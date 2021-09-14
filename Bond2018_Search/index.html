@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bond 2018 Search</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="search-form">
+        <div class="search-container" title="Search for Title, Category, or Campus Type"> <input type="text" class="search" placeholder="Search for Title, Category, or Campus Type"> </div>
+        <div class="dropdown-container ">
+        <div class="dropdown-item" title="Search for Campus Type"> <label class="dataType-title" for="dataType">Campus Type:</label> <select id="dataType" name="cards">
+        <option value="selectAll">All Campus</option>
+        <option value="highSchool">High School</option>
+        <option value="elementarySchool">Elementary School</option>
+        <option value="middleSchool">Middle School</option>
+        <option value="other">Other</option>
+        </select> </div>
+        <div class="dropdown-item" title="Search for Project Category"> <label class="dataType-title" for="dataType">Project Category:</label> <select id="projectCategory" name="cards">
+        <option value="selectAll">All Categories</option>
+        <option value="newBuildings">New Buildings</option>
+        <option value="athletics">Athletics</option>
+        <option value="fineArts">Fine Arts</option>
+        <option value="transportation">Transportation</option>
+        <option value="repairMaintenance">Repair &amp; Maintenance</option>
+        <option value="refreshRenew">Refresh/Renew</option>
+        <option value="playground">Playground</option>
+        <option value="FF&amp;E">FF&amp;E</option>
+        <option value="security">Security</option>
+        <option value="technology">Technology</option>
+        <option value="other">Other</option>
+        </select> </div>
+        </div>
+        <div class="more__info-plus"> <button type="button" id="btn-plus" title="More filter options" class="btn-plus"> <em class="fa fa-th"></em> </button> </div>
+        <div class="btn-container"> <input title="Search for bond information" id="btn-form" type="button" value="Search"> </div>
+        </div>
+        <div class="btn-more"> <span id="arrow" class="arrow"></span>
+        <div id="filtersToShow" class="more__info-btns"> <button type="button" id="btn-budget" class="btn-filters"> <em class="fa fa-usd"></em>
+        <p>Budget Lowest to Highest</p>
+        </button> <button type="button" id="btn-category" class="btn-filters"> <em class="fa fa-briefcase"></em>
+        <p>Category Ascend to Descend</p>
+        </button> <button type="button" id="btn-school" class="btn-filters"> <em class="fa fa-graduation-cap"></em>
+        <p>School Ascend to Descend</p>
+        </button> <button type="button" id="btn-project" class="btn-filters"> <em class="fa fa-edit"></em>
+        <p>Project Ascend to Descend</p>
+        </button> <button type="button" id="btn-date" class="btn-filters"> <em class="fa fa-calendar-check-o"></em>
+        <p>Date Newest to Oldest</p>
+        </button> <button type="button" id="btn-completion" class="btn-filters"> <em class="fa fa-tasks" aria-hidden="true"></em>
+        <p>Completion Ascend to Descend</p>
+        </button> </div>
+        </div>
+        <div class="cards-container"></div>
+        </div>
+    <script src="./app.js"></script>
+</body>
+</html>
