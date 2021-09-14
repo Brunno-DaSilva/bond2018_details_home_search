@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const percentage_span =
       percentageCompletion < 30
         ? `${percentageCompletion}%`
-        : `${percentageCompletion} % Completion`;
+        : `${percentageCompletion}% Completion`;
 
     // percentage_completion.innerHTML = `${percentage_span}`;
     document.getElementById("progressBar").innerHTML = `${percentage_span}`;
