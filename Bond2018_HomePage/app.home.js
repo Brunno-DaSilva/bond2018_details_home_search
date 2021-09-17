@@ -7,56 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const percentage_completion = document.getElementById(
     "percentage_completion"
   );
-
-  const dataSet = [];
-  const baseURL =
-    "https://res.friscoisd.org/services/Bond/Project?filterType=test&filter=test&refresh=true";
-
-  /***************************************************
-[X] The data(from const data = 55; ) can be Fetched 
-        so the page percentage can be 
-        altered dynamically 
-***************************************************/
-
-  function getData() {
-    fetch(baseURL)
-      .then((response) => response.json())
-      .then((data) => {
-        dataSet.push(...data);
-        getPercentage();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  // Assigned value from BASEURL TO PERCENTAGE VARIABLE
-  // called getPercentage in the .then() to output the value
-  function getPercentage() {
-    const info = dataSet.slice(0, 1).map((data) => {
-      return data.PercentComplete;
-    });
-
-    let percentageCompletion = info - 70;
-
-    const percentage_span =
-      percentageCompletion < 30
-        ? `${percentageCompletion}%`
-        : `${percentageCompletion}% Completion`;
-
-    // percentage_completion.innerHTML = `${percentage_span}`;
-    document.getElementById("progressBar").innerHTML = `${percentage_span}`;
-    progress.style.width = `${percentageCompletion}%`;
-    progress.style.opacity = 1;
-
-    return info;
-  }
+  const BASE_URL = `https://res.friscoisd.org/services/Bond/ProjectCompletion?refresh=true`;
 
   /*=====================
 ==>  DOM Manipulation
 =====================*/
 
-  window.onload = () => {
-    getData();
-  };
+  function getData(url) {
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((jsonData) => {
+        displayPercentage(jsonData);
+      })
+      .catch((error) => {
+        console.log("This is an error", error);
+      });
+  }
+
+  function displayPercentage(data) {
+    const percentage_result =
+      data.CompletionPercentage < 30
+        ? `${data.CompletionPercentage}%`
+        : `${data.CompletionPercentage}% Completion`;
+
+    percentage_completion.innerHTML = `${percentage_result}`;
+    progress.style.width = `${data.CompletionPercentage}%`;
+    progress.style.opacity = 1;
+  }
+
+  getData(BASE_URL);
 });
